@@ -1,0 +1,118 @@
+<div class="container">
+	<ui-tab value="0" @confirm="tab = $event.target.value">
+		<ui-button>纹理生成</ui-button>
+		<ui-button>生成配置</ui-button>
+		<ui-button>联系作者</ui-button>
+	</ui-tab>
+
+	<!-- 纹理生成 -->
+	<div class="texture_generate" v-show="texture_generate">
+		<!-- 图片 -->
+		<ui-section class="config" header="图片">
+			<div class="image_operation">
+				<ui-button @confirm="texture_ss.push('')">
+					<ui-icon default="operation" value="add"></ui-icon>
+					<ui-label>添加</ui-label>
+				</ui-button>
+				<ui-button @confirm="texture_ss = []">
+					<ui-icon default="operation" value="clear" color="red"></ui-icon>
+					<ui-label>清空</ui-label>
+				</ui-button>
+			</div>
+			<div class="image_list">
+				<div class="image_list_content" v-for="(v_s, k_n) in texture_ss">
+					<ui-asset
+						droppable="cc.ImageAsset"
+						@confirm="texture_ss[k_n] = $event.target.value"
+						v-model="texture_ss[k_n]"
+					></ui-asset>
+					<ui-button @confirm="texture_ss.splice(k_n, 1)">
+						<ui-icon default="operation" value="del" color="red"></ui-icon>
+					</ui-button>
+				</div>
+			</div>
+			<div class="image_list_bottom"></div>
+		</ui-section>
+		<div class="interval"></div>
+		<!-- 文件夹 -->
+		<ui-section class="config" header="文件夹">
+			<div class="image_operation">
+				<ui-button @confirm="folder_ss.push('')">
+					<ui-icon default="operation" value="add"></ui-icon>
+					<ui-label>添加</ui-label>
+				</ui-button>
+				<ui-button @confirm="folder_ss = []">
+					<ui-icon default="operation" value="clear" color="red"></ui-icon>
+					<ui-label>清空</ui-label>
+				</ui-button>
+			</div>
+			<div class="directory_list">
+				<div class="directory_list_content" v-for="(v_s, k_n) in folder_ss">
+					<ui-file
+						type="directory"
+						@confirm="folder_ss[k_n] = $event.target.value"
+						v-model="folder_ss[k_n]"
+					></ui-file>
+					<ui-button @confirm="folder_ss.splice(k_n, 1)">
+						<ui-icon default="operation" value="del" color="red"></ui-icon>
+					</ui-button>
+				</div>
+			</div>
+			<div class="directory_list_bottom"></div>
+		</ui-section>
+		<ui-button
+			class="button_generate"
+			tooltip="生成SDF纹理至对应资源路径，后缀名为_sdf"
+			v-show="!generate_state_b"
+			@confirm="button_generate"
+		>
+			<ui-icon default="more" value="experiment" color="true"></ui-icon>
+			<ui-label>一键生成</ui-label>
+		</ui-button>
+		<div class="generate_loading" v-show="generate_state_b">
+			<ui-progress
+				class="generate_loading_progress"
+				v-model="generate_progress_n"
+			></ui-progress>
+			<ui-loading class="generate_loading_anim"></ui-loading>
+		</div>
+	</div>
+
+	<!-- 生成配置 -->
+	<div class="generate_config" v-show="generate_config">
+		<ui-prop>
+			<ui-label slot="label">SDF范围：</ui-label>
+			<ui-num-input slot="content" v-model="sdf_radius_n" preci="0"></ui-num-input>
+		</ui-prop>
+		<ui-prop>
+			<ui-label slot="label">图片扩边：</ui-label>
+			<ui-num-input
+				slot="content"
+				tooltip="在图片四周填充的空白像素"
+				v-model="extend_radius_n"
+				preci="0"
+			></ui-num-input>
+		</ui-prop>
+	</div>
+
+	<!-- 联系作者 -->
+	<div class="contact_author" v-show="contact_author">
+		<br />
+		<ui-label class="title">
+			QQ群：
+			<ui-link value="https://jq.qq.com/?_wv=1027&k=YORbtrDD">
+				<ui-label>点击加入</ui-label>
+			</ui-link>
+		</ui-label>
+		<br />
+		<br />
+		<div class="wx_qrcode">
+			<ui-label class="title">微信打赏：</ui-label>
+			<br />
+			<ui-qrcode
+				value="wxp://f2f0HM8x5RBCRM6xekVJARcf7C80dPh4BFiPr-1yqfUn13E"
+				size="150"
+			></ui-qrcode>
+		</div>
+	</div>
+</div>

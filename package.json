@@ -1,0 +1,54 @@
+{
+	"package_version": 2,
+	"name": "mk_sdf_texture",
+	"version": "0.0.1",
+	"description": "SDF 纹理生成插件",
+	"author": "_muzzik",
+	"main": "./src/main.js",
+	"contributions": {
+		"scene": {
+			"script": "./src/scene.js"
+		},
+		"menu": [
+			{
+				"path": "i18n:menu.extension",
+				"label": "i18n:mk_sdf_texture.title",
+				"message": "open"
+			}
+		],
+		"messages": {
+			"open": {
+				"methods": [
+					"open"
+				]
+			}
+		},
+		// 快捷键
+        "shortcuts": [
+            {
+                "message": "open",
+                "win": "f1",
+                "mac": "f1"
+            }
+        ]
+	},
+	"panels": {
+		"default": {
+			"main": "./src/panel",
+			"type": "dockable",
+			"title": "muzzik插件",
+			"size": {
+				"width": 500,
+				"height": 600,
+				"min-width": 500,
+				"min-height": 600
+			}
+		}
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.31"
+	},
+	"dependencies": {
+		"vue": "^3.2.33"
+	}
+}
