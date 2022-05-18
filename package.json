@@ -1,8 +1,8 @@
 {
 	"package_version": 2,
-	"name": "mk_sdf_texture",
+	"name": "cc-plugin-template",
 	"version": "0.0.1",
-	"description": "SDF 纹理生成插件",
+	"description": "插件模板",
 	"author": "_muzzik",
 	"main": "./src/main.js",
 	"contributions": {
@@ -12,7 +12,7 @@
 		"menu": [
 			{
 				"path": "i18n:menu.extension",
-				"label": "i18n:mk_sdf_texture.title",
+				"label": "i18n:cc-plugin-template.title",
 				"message": "open"
 			}
 		],
@@ -23,20 +23,19 @@
 				]
 			}
 		},
-		// 快捷键
-        "shortcuts": [
-            {
-                "message": "open",
-                "win": "f1",
-                "mac": "f1"
-            }
-        ]
+		"shortcuts": [
+			{
+				"message": "open",
+				"win": "f1",
+				"mac": "f1"
+			}
+		]
 	},
 	"panels": {
 		"default": {
 			"main": "./src/panel",
 			"type": "dockable",
-			"title": "muzzik插件",
+			"title": "mk插件模板",
 			"size": {
 				"width": 500,
 				"height": 600,

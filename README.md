@@ -14,7 +14,8 @@ cocos creator 3.x 插件开发模板
     > cc-plugin-cli c -p '插件目录'
 
 ## # 注意
-- i18n文件夹 必须在根目录且为 js 文件
+
+-   i18n 文件夹 必须在根目录且为 js 文件
 
 ## # 建议
 
