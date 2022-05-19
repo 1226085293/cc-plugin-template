@@ -11,11 +11,7 @@ cocos creator 3.x 插件开发模板
 -   安装编译 npm 包（已安装跳过）
     > npm i @muzzik/cc-plugin-cli
 -   使用
-    > cc-plugin-cli c -p '插件目录'
-
-## # 注意
-
--   i18n 文件夹 必须在根目录且为 js 文件
+    > cc-plugin-cli c -p '插件绝对目录'
 
 ## # 建议
 
