@@ -37,4 +37,4 @@ const option = {
 	},
 };
 
-module.exports = Editor.Panel.define(option);
+export = Editor.Panel.define(option);
