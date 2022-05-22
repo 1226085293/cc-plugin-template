@@ -4,6 +4,7 @@ cocos creator 3.x 插件开发模板
 
 ## # 初始化
 
+-   将插件目录移动至 **项目目录/extensions_dev** 下
 -   使用 vscode 全局替换 cc-plugin-template 为你的插件名
 
 ## # 编译
@@ -15,5 +16,8 @@ cocos creator 3.x 插件开发模板
 
 ## # 建议
 
--   css 编写参考：https://www.w3school.com.cn/css/index.asp
+-   css 编写参考：[https://www.w3school.com.cn/css/index.asp](https://www.w3cschool.cn/cssref/)
 -   html 标签：想要啥直接百度
+
+## # 联系
+-   qq群：200351945
