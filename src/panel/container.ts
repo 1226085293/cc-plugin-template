@@ -2,16 +2,43 @@ import * as fs from "fs";
 import * as vue from "vue";
 import config from "../config";
 
+interface css_info {
+	/** css 路径 */
+	url_s: string;
+	/** 挂载节点 */
+	parent: ParentNode;
+}
+
 const option: vue.Component = {
 	template: fs.readFileSync(`${__dirname}/container.html`, "utf-8"),
-	methods: {},
-	data: function () {
+	methods: {
+		/** 动态加载 css */
+		load_css(info_as_: css_info[]): void {
+			info_as_.forEach((v) => {
+				let css = document.createElement("link");
+				css.rel = "stylesheet";
+				css.href = v.url_s;
+				v.parent.appendChild.call(v.parent, css);
+			});
+		},
+	},
+	data() {
 		return {};
 	},
 	watch: {},
-	created: async function () {},
-	beforeClose: function () {},
-	close: function () {},
+	created() {},
+	mounted() {
+		this.load_css([
+			{
+				parent: document.head,
+				url_s: config.path_s + "/node_modules/element-plus/dist/index.css",
+			},
+			{
+				parent: this.$el,
+				url_s: config.path_s + "/node_modules/element-plus/dist/index.css",
+			},
+		]);
+	},
 };
 
 export = option;

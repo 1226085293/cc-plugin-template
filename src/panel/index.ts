@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as vue from "vue";
 import * as container from "./container";
+import element_ui from "element-plus";
 
 const weak_map = new WeakMap<any, vue.App>();
 
@@ -23,6 +24,7 @@ const option = {
 		if (this.$.app) {
 			const app = vue.createApp({});
 			app.config.compilerOptions.isCustomElement = (tag_s) => tag_s.startsWith("ui-");
+			app.use(element_ui);
 			app.component("container", container);
 			app.mount(this.$.app);
 			weak_map.set(this, app);
