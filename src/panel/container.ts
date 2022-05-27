@@ -21,6 +21,15 @@ const option: vue.Component = {
 				v.parent.appendChild.call(v.parent, css);
 			});
 		},
+
+		async click_scene_script(): Promise<void> {
+			const result = await Editor.Message.request("scene", "execute-scene-script", {
+				name: config.name_s,
+				method: "event_template",
+				args: [1],
+			});
+			console.log("场景脚本返回", result);
+		},
 	},
 	data() {
 		return {};

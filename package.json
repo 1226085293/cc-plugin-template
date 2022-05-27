@@ -5,6 +5,9 @@
 	"description": "插件模板",
 	"author": "_muzzik",
 	"main": "./src/main.js",
+	"scripts": {
+		"build": "cc-plugin-cli c -p cc-plugin-template"
+	},
 	"contributions": {
 		"scene": {
 			"script": "./src/scene.js"
