@@ -1,6 +1,10 @@
 import * as fs from "fs";
+import path from "path";
 import * as vue from "vue";
-import * as container from "./container";
+import lib_css from "../../../@libs/lib_css";
+import config from "../config";
+import * as panel_config from "./config/panel_config";
+import * as panel_container from "./container/panel_container";
 import element_ui from "element-plus";
 
 const weak_map = new WeakMap<any, vue.App>();
@@ -14,8 +18,8 @@ const option = {
 			console.log("hide");
 		},
 	},
-	template: `<div id="app"> <container></container> </div>`,
-	style: fs.readFileSync(`${__dirname}/container.css`, "utf-8"),
+	template: fs.readFileSync(`${__dirname}/index.html`, "utf-8"),
+	style: fs.readFileSync(`${__dirname}/index.css`, "utf-8"),
 	$: {
 		app: "#app",
 	},
@@ -23,9 +27,14 @@ const option = {
 	ready() {
 		if (this.$.app) {
 			const app = vue.createApp({});
+			// 标记自定义元素
 			app.config.compilerOptions.isCustomElement = (tag_s) => tag_s.startsWith("ui-");
 			app.use(element_ui);
-			app.component("container", container);
+			// 面板组件
+			app.component("container", panel_container);
+			// 配置组件
+			app.component("config", panel_config);
+			// 挂载
 			app.mount(this.$.app);
 			weak_map.set(this, app);
 		}

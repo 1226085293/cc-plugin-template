@@ -1,6 +1,7 @@
 import * as fs from "fs";
+import path from "path";
 import * as vue from "vue";
-import config from "../config";
+import config from "../../config";
 
 interface css_info {
 	/** css 路径 */
@@ -9,8 +10,8 @@ interface css_info {
 	parent: ParentNode;
 }
 
-const option: vue.Component = {
-	template: fs.readFileSync(`${__dirname}/container.html`, "utf-8"),
+const component: vue.Component = {
+	template: fs.readFileSync(`${__dirname}/panel_container.html`, "utf-8"),
 	methods: {
 		/** 动态加载 css */
 		load_css(info_as_: css_info[]): void {
@@ -50,4 +51,4 @@ const option: vue.Component = {
 	},
 };
 
-export = option;
+export = component;
