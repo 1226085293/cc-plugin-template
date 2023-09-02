@@ -41,11 +41,11 @@ const component: vue.Component = {
 		this.load_css([
 			{
 				parent: document.head,
-				url_s: config.path_s + "/node_modules/element-plus/dist/index.css",
+				url_s: config.root_path_s + "/node_modules/element-plus/dist/index.css",
 			},
 			{
 				parent: this.$el,
-				url_s: config.path_s + "/node_modules/element-plus/dist/index.css",
+				url_s: config.root_path_s + "/node_modules/element-plus/dist/index.css",
 			},
 		]);
 	},

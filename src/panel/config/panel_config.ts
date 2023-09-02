@@ -17,7 +17,7 @@ const component: vue.Component = {
 		lib_css.load([
 			{
 				parent: this.$el,
-				url_s: path.join(config.path_s, "src/panel", "config", "panel_config.css"),
+				url_s: path.join(config.root_path_s, "src/panel", "config", "panel_config.css"),
 			},
 		]);
 	},
