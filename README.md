@@ -10,7 +10,7 @@ cocos creator 3.x 插件开发模板
 ## # 编译
 
 -   安装编译 npm 包（已安装跳过）
-    > npm i @muzzik/cc-plugin-cli
+    > npm i -g @muzzik/cc-plugin-cli
 -   使用
     > cc-plugin-cli c -p '插件绝对目录'
 
