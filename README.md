@@ -4,7 +4,9 @@ cocos creator 3.x 插件开发模板
 
 ## # 初始化
 
--   将插件目录移动至 **项目目录/extensions_dev** 下
+-   将插件目录移动至 **项目根目录/extensions_dev** 下
+    > 完整路径：项目根目录/extensions_dev/cc-plugin-template
+-   在插件目录下命令行执行 `npm i`（确保没有中断/报错）
 -   使用 vscode 全局替换 cc-plugin-template 为你的插件名
 
 ## # 编译
